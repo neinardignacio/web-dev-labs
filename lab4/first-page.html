@@ -1,164 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Nei Cafe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Dragon's Brew Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    /* Reset and base styles */
+    /* Reset & Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    body, html {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* Background with overlay */
     body {
-      height: 100vh;
-      background: linear-gradient(135deg, #74ebd5, #9face6);
+      background: url('https://i.ibb.co/ZGvZTcK/dragon-minimal.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.75); /* semi-transparent white */
+      z-index: 1;
+    }
+
+    /* Content Container */
+    .welcome-container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       text-align: center;
-      width: 90%;
-      max-width: 400px;
+      padding: 0 20px;
     }
 
-    h1 {
+    .welcome-container h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
 
-    p {
-      color: #666;
-      margin-bottom: 20px;
+    .welcome-container p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin-bottom: 2rem;
     }
 
-    button {
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #6c63ff;
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #333;
       color: #fff;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
 
-    button:hover {
-      background-color: #5848e5;
+    .btn:hover {
+      background-color: #555;
     }
 
-    #extraMessage {
-      display: none;
-      margin-top: 20px;
-      font-size: 16px;
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Welcome!</h1>
-    <p>Thanks for visiting my page.</p>
-    <button onclick="showMessage()">Click to Continue</button>
-    <p id="extraMessage">You're awesome! 🎉</p>
-  </div>
-
-  <script>
-    function showMessage() {
-      const msg = document.getElementById("extraMessage");
-      msg.style.display = "block";
-    }
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome Page with Time & Day</title>
-  <style>
-    body {
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #74ebd5, #9face6);
-    }
-
-    .container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    .info {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #555;
-    }
-
-    .status {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    .open {
-      color: green;
-    }
-
-    .closed {
-      color: red;
+    @media (max-width: 600px) {
+      .welcome-container h1 {
+        font-size: 2rem;
+      }
+      .welcome-container p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome!</h1>
-    <p class="info" id="dayTime"></p>
-    <p class="status" id="statusMessage"></p>
+  <div class="welcome-container">
+    <h1>Welcome to Dragon's Brew Cafe</h1>
+    <p>A tranquil hideaway where warmth meets mysticism. Sip artisan coffee in the company of legends.</p>
+    <a href="#menu" class="btn">View Menu</a>
   </div>
-
-<script>
-    function updateTimeAndStatus() {
-      const now = new Date();
-      const hours = now.getHours();
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-
-      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      const dayName = days[now.getDay()];
-
-      const timeString = `${hours % 12 === 0 ? 12 : hours % 12}:${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
-      const fullMessage = `Today is ${dayName}, and the time is ${timeString}.`;
-
-      document.getElementById("dayTime").textContent = fullMessage;
-
-      const isOpen = hours >= 7 && hours < 22;
-      const statusEl = document.getElementById("statusMessage");
-      statusEl.textContent = isOpen ? "We are OPEN 🟢" : "We are CLOSED 🔴";
-      statusEl.className = "status " + (isOpen ? "open" : "closed");
-    }
-
-    // Initial run and then update every minute
-    updateTimeAndStatus();
-    setInterval(updateTimeAndStatus, 60000);
-  </script>
 </body>
 </html>
+
