@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome Page</title>
+  <title>Welcome to Nei Cafe</title>
   <style>
     /* Reset and base styles */
     * {
@@ -77,6 +77,33 @@
       const msg = document.getElementById("extraMessage");
       msg.style.display = "block";
     }
+  </script>
+</body>
+</html>
+
+<script>
+    function updateTimeAndStatus() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const dayName = days[now.getDay()];
+
+      const timeString = `${hours % 12 === 0 ? 12 : hours % 12}:${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
+      const fullMessage = `Today is ${dayName}, and the time is ${timeString}.`;
+
+      document.getElementById("dayTime").textContent = fullMessage;
+
+      const isOpen = hours >= 7 && hours < 22;
+      const statusEl = document.getElementById("statusMessage");
+      statusEl.textContent = isOpen ? "We are OPEN 🟢" : "We are CLOSED 🔴";
+      statusEl.className = "status " + (isOpen ? "open" : "closed");
+    }
+
+    // Initial run and then update every minute
+    updateTimeAndStatus();
+    setInterval(updateTimeAndStatus, 60000);
   </script>
 </body>
 </html>
