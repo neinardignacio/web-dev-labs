@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Neinard Ignacio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 40px;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    button {
+      background-color: #008CBA;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #006f94;
+    }
+    #genres {
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+
+  <h1>Hello, I'm Neinard Ignacio!</h1>
+  <p>I love doing the following:</p>
+  <ul>
+    <li>Cooking</li>
+    <li>Watching TV</li>
+    <li>Listening to Music</li>
+    <li>Playing Online Games</li>
+  </ul>
+
+  <button onclick="showGenres()">Click to see my favorite genres</button>
+
+  <div id="genres">
+    <h3>My Favorite TV Genres:</h3>
+    <ul>
+      <li>Action</li>
+      <li>Drama</li>
+      <li>Comedy</li>
+    </ul>
+  </div>
+
+  <script>
+    function showGenres() {
+      const genres = document.getElementById("genres");
+      if (genres.style.display === "none") {
+        genres.style.display = "block";
+      } else {
+        genres.style.display = "none";
+      }
+    }
+  </script>
+
 </body>
 </html>
