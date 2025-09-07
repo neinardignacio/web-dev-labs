@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sunrise Roastery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf6f0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #a0522d;
+    }
+
+    .section {
+      margin-top: 30px;
+    }
+
+    .toggle-button {
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .content {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sunrise Roastery</h1>
+
+  <div class="section">
+    <h2>Our Origin</h2>
+    <button class="toggle-button" onclick="toggleContent('origin')">Read More</button>
+    <div id="origin" class="content">
+      <p>
+        Sunrise Roastery began in the highlands of Ethiopia, where our founders discovered a love for bold, natural coffee. 
+        Since 2005, we've been sourcing the finest beans and roasting them to perfection to share the authentic coffee experience with the world.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Our Values</h2>
+    <button class="toggle-button" onclick="toggleContent('values')">Read More</button>
+    <div id="values" class="content">
+      <ul>
+        <li><strong>Quality:</strong> Only the best beans, expertly roasted.</li>
+        <li><strong>Sustainability:</strong> Supporting ethical farming practices and eco-friendly packaging.</li>
+        <li><strong>Community:</strong> Building strong relationships with farmers and customers alike.</li>
+        <li><strong>Passion:</strong> We love what we do and share it in every cup.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
